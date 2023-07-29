@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
-import axios from 'axios'
-import {AiOutlineCheckCircle} from 'react-icons/ai'
+import axios from "axios";
 import { Context } from "../context/Context";
 
 const Login = () => {
   const [emailLog, setEmailLog] = useState("");
   const [passwordLog, setPasswordLog] = useState("");
 
-  const {loggedIn, setLoggedIn} = useContext(Context)
+  const { loggedIn, setLoggedIn } = useContext(Context);
 
   const login = (props) => {
     axios
@@ -17,15 +16,15 @@ const Login = () => {
       })
       .then((response) => {
         if (response.data.message) {
-          alert('Wrong Email/password')
+          alert("Wrong Email/password");
         } else {
-          const savedEmail = JSON.stringify(emailLog)
-          localStorage.setItem('email', savedEmail)
+          const savedEmail = JSON.stringify(emailLog);
+          localStorage.setItem("email", savedEmail);
 
-          const setLogin = localStorage.setItem('LoggedIn', 'true')
+          const setLogin = localStorage.setItem("LoggedIn", "true");
           setEmailLog("");
           setPasswordLog("");
-          document.location.href = '/';
+          document.location.href = "/";
         }
       });
   };
@@ -61,8 +60,11 @@ const Login = () => {
               value={passwordLog}
               className="mt-1 pt-1 pb-1 w-full rounded-full text-black text-center border-2 border-black"
             />
-            <button onClick={login} className="mt-6 p-3 text-lg bg-black text-white rounded-full hover:bg-lightBlack duration-300 ease-in-out cursor-pointer">
-            Log In
+            <button
+              onClick={login}
+              className="mt-6 p-3 text-lg bg-black text-white rounded-full hover:bg-lightBlack duration-300 ease-in-out cursor-pointer"
+            >
+              Log In
             </button>
           </div>
           <div className="flex text-black justify-end mt-4 underline">

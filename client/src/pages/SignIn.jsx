@@ -1,28 +1,27 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from "axios";
 
 const SignIn = () => {
   const [emailReg, setEmailReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
 
   const register = () => {
-    if(emailReg.length > 0 && passwordReg.length > 0) {
+    if (emailReg.length > 0 && passwordReg.length > 0) {
       axios
-      .post("http://localhost:5000/register", {
-        email: emailReg,
-        password: passwordReg,
-      })
-      .then((response) => {
-        console.log(response);
-      });
-    setEmailReg("");
-    setPasswordReg("");
-    document.location.href = '/';
-  }else {
-    alert("Email/password can't be empty")
-  }
+        .post("http://localhost:5000/register", {
+          email: emailReg,
+          password: passwordReg,
+        })
+        .then((response) => {
+          console.log(response);
+        });
+      setEmailReg("");
+      setPasswordReg("");
+      document.location.href = "/";
+    } else {
+      alert("Email/password can't be empty");
     }
-    
+  };
 
   return (
     <div>
