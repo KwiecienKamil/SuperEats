@@ -25,16 +25,6 @@ connection.connect((err) => {
     console.log('db ' + connection.state)
 })
 
-// app.get('/players', (req, res) => {
-//     connection.query('SELECT * FROM squad', (err, result) => {
-//         if(err) {
-//             console.log(err)
-//         }else {
-//             res.send(result)
-//         }
-//     })
-// })
-
 
 app.post('/register', (req, res) => {
     const email = req.body.email
@@ -64,4 +54,4 @@ app.post('/login', (req, res) => {
     });
 });
 
-app.listen(process.env.PORT, () => console.log('app is running'));
+app.listen(process.env.PORT || 5000, () => console.log('app is running'));

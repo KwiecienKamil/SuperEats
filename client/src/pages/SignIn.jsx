@@ -8,7 +8,7 @@ const SignIn = () => {
   const register = () => {
     if (emailReg.length > 0 && passwordReg.length > 0) {
       axios
-        .post("http://localhost:5000/register", {
+        .post("https://supereatsdb.onrender.com/register", {
           email: emailReg,
           password: passwordReg,
         })
@@ -17,7 +17,7 @@ const SignIn = () => {
         });
       setEmailReg("");
       setPasswordReg("");
-      document.location.href = "/";
+      alert('Success! Now Click Log In')
     } else {
       alert("Email/password can't be empty");
     }

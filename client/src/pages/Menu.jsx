@@ -1,10 +1,9 @@
 import React, { useContext, useState } from "react";
-import { MenuData } from "../data/MenuData";
 import { Context } from "../context/Context";
+import { MenuData } from "../data/MenuData";
 
 const Menu = (props) => {
-  const [data, setData] = useState(MenuData);
-  const { addToCart } = useContext(Context);
+  const { addToCart, data, setData } = useContext(Context);
 
   const filterType = (category) => {
     setData(
@@ -25,7 +24,7 @@ const Menu = (props) => {
   return (
     <div onClick={props.onCloseSideModal}>
       <div className="w-full flex items-center justify-center">
-        <div className="w-[95%] flex items-center justify-center gap-4 sm:gap-8 text-[12px] sm:text-[15px] pt-[30px] pb-8 border-b border-darkerGray">
+        <div className="w-[95%] flex items-center justify-center gap-4 sm:gap-8 text-[12px] sm:text-[17px] pt-[30px] pb-8 border-b border-darkerGray">
           <div className="flex flex-col items-center justify-center">
             <img
               onClick={() => setData(MenuData)}
@@ -88,7 +87,7 @@ const Menu = (props) => {
         </h1>
         <div className="">
           <p className="text-center pt-4 pb-2 font-semibold">Filter price</p>
-          <div className="w-full flex items-center justify-center gap-4 text-[12px] ">
+          <div className="w-full flex items-center justify-center gap-4 text-[14px] ">
             <button
               onClick={() => setData(MenuData)}
               className="text-orange-500 border-orange-400 border-2 rounded-full p-1 font-semibold hover:bg-darkgray"
@@ -145,7 +144,6 @@ const Menu = (props) => {
               </div>
             </div>
           ))}
-          ;
         </div>
       </div>
     </div>

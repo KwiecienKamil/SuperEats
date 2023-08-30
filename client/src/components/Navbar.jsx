@@ -3,19 +3,38 @@ import { BsCart } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { FaBars } from "react-icons/fa";
 import { HiMapPin } from "react-icons/hi2";
-import { BiSearch } from "react-icons/bi";
 import { Context } from "../context/Context";
+import { BiSearch } from "react-icons/bi";
+import { MenuData } from "../data/MenuData";
 
 const Navbar = (props) => {
+  const [input, setInput] = useState("");
   const [chooseOption, setChooseOption] = useState(true);
-  const { cartItems } = useContext(Context);
+  const { cartItems, data, setData } = useContext(Context);
+
+  const filterType = (event) => {
+    setInput(event.target.value);
+    const newFilter = data.filter((item) => {
+      return item.category.includes(input);
+    });
+    setData(newFilter);
+    if(input.length === 0) {
+      setData(MenuData)
+    }
+  };
 
   const switchToDelivery = () => {
     setChooseOption(true);
+    setData(
+      data.filter((item) => {
+        return item.price < 15;
+      })
+    );
   };
 
   const switchToPickup = () => {
     setChooseOption(false);
+    setData(MenuData);
   };
 
   const { loggedIn, setLoggedIn } = useContext(Context);
@@ -43,7 +62,7 @@ const Navbar = (props) => {
           </h1>
         </a>
       </div>
-      <div className="p-[5px] bg-gray rounded-full text-[12px] hidden xl:block">
+      <div className="p-[5px] bg-gray rounded-full text-[14px] hidden xl:block">
         <button
           className={
             chooseOption
@@ -67,22 +86,25 @@ const Navbar = (props) => {
       </div>
       <div className="hidden xl:flex p-1 bg-gray rounded-full items-center justify-between hover:bg-darkgray duration-400 ease-out ">
         <HiMapPin />
-        <button className="flex items-center justify-center gap-1 p-[5px] text-[12px]">
+        <button className="flex items-center justify-center gap-1 p-[5px] text-[14px]">
           <p>Warsaw</p>
           <div className="w-[3px] h-[3px] rounded-full bg-black"></div>
           <p>Now</p>
         </button>
       </div>
       <div className="flex justify-center items-center bg-gray p-[6px] rounded-full ">
-        <BiSearch size=".8em" />
+        <BiSearch size="1.2em" />
         <input
           type="text"
-          className="bg-gray text-[10px] lg:text-[12px]  w-[100px] lg:w-[350px] xl:w-[650px] p-[3px] focus:outline-none"
+          className="bg-gray text-[10px] lg:text-[14px]  w-[100px] lg:w-[350px] xl:w-[650px] p-[3px] focus:outline-none"
           placeholder="Food, groceries, drinks etc."
+          value={input}
+          onChange={filterType}
+          onClick={() => setData(MenuData)}
         />
       </div>
       {/* Nav */}
-      <div className="flex items-center justify-between pl-4 gap-1 sm:gap-4  text-[10px] lg:text-[12px] ">
+      <div className="flex items-center justify-between pl-4 gap-1 sm:gap-4  text-[10px] lg:text-[14px] ">
         <button
           onClick={props.onOpen}
           className="flex items-center justify-center gap-1 py-[6px] px-2 bg-black text-white rounded-full font-semibold hover:opacity-75 duration-400 ease-out"
@@ -94,7 +116,7 @@ const Navbar = (props) => {
         </button>
         <a
           href="/login"
-          className="hidden sm:flex items-center justify-center py-[6px] px-2 text-[10px] lg:text-[12px]  bg-gray text-black rounded-full font-semibold hover:bg-darkgray duration-400 ease-out"
+          className="hidden sm:flex items-center justify-center py-[6px] px-2 text-[10px] lg:text-[14px]  bg-gray text-black rounded-full font-semibold hover:bg-darkgray duration-400 ease-out"
         >
           {loggedIn ? <span className="pr-1">Hi</span> : <AiOutlineUser />}
           {loggedIn ? localStorage.getItem("email") : "Login"}
@@ -102,14 +124,14 @@ const Navbar = (props) => {
         {loggedIn ? (
           <button
             onClick={handleLogout}
-            className="py-[6px] px-2 text-[8px] lg:text-[12px]  bg-black text-white rounded-full font-semibold hover:bg-darkgray duration-400 ease-out"
+            className="py-[6px] px-2 text-[8px] lg:text-[14px]  bg-black text-white rounded-full font-semibold hover:opacity-75 duration-400 ease-out"
           >
             Logout
           </button>
         ) : (
           <a
             href="/signIn"
-            className="hidden sm:flex flex items-center justify-center py-[6px] px-2 text-[10px] lg:text-[12px]  bg-gray text-black rounded-full font-semibold hover:bg-darkgray  duration-400 ease-out"
+            className="hidden sm:flex items-center justify-center py-[6px] px-2 text-[10px] lg:text-[14px]  bg-gray text-black rounded-full font-semibold hover:bg-darkgray  duration-400 ease-out"
           >
             Sign Up
           </a>

@@ -1,10 +1,12 @@
 import { createContext, useState } from "react";
+import { MenuData } from "../data/MenuData";
 
 export const Context = createContext(null);
 
 let cartItemsLength = 0;
 
 export const ContextProvider = (props) => {
+  const [data, setData] = useState(MenuData);
   const [loggedIn, setLoggedIn] = useState(false);
   const storedItems = localStorage.getItem("item");
   const parsedItems = JSON.parse(storedItems);
@@ -32,6 +34,8 @@ export const ContextProvider = (props) => {
     loggedIn,
     setLoggedIn,
     cartItemsLength,
+    data,
+    setData
   };
   return (
     <Context.Provider value={contextValue}>{props.children}</Context.Provider>

@@ -34,7 +34,7 @@ const CartModal = (props) => {
           Total Amount:{" "}
           <span className="text-orange-500 font-semibold">{`${price}$`}</span>
         </p>
-        <button className="p-2 bg-black text-white rounded-full text-[12px] font-semibold hover:opacity-75 duration-400 ease-out">
+        <button className="p-2 bg-black text-white rounded-f ull text-[12px] font-semibold hover:opacity-75 duration-400 ease-out">
           Order
         </button>
       </div>

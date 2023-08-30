@@ -10,7 +10,7 @@ const Login = () => {
 
   const login = (props) => {
     axios
-      .post("http://localhost:5000/login", {
+      .post("https://supereatsdb.onrender.com/login", {
         email: emailLog,
         password: passwordLog,
       })
