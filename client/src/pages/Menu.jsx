@@ -120,7 +120,7 @@ const Menu = (props) => {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-3 lg:grid-cols-4 gap-6 pt-8 px-1 sm:px-8 ">
+        <div className="grid grid-cols-3 lg:grid-cols-4 gap-6 py-8 px-1 sm:px-8 ">
           {data.map((item, index) => (
             <div
               key={index}

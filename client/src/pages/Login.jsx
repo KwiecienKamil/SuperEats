@@ -67,8 +67,9 @@ const Login = () => {
               Log In
             </button>
           </div>
-          <div className="flex text-black justify-end mt-4 underline">
+          <div className="flex flex-col items-end text-black  mt-4 underline">
             <a href="/signIn">Create account</a>
+            <a href="/">Back to home page</a>
           </div>
         </div>
       </div>
