@@ -13,7 +13,7 @@ export const MenuData = [
       category: 'burger',
       image:
         'https://images.unsplash.com/photo-1553979459-d2229ba7433b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGJ1cmdlcnN8ZW58MHx8MHx8&auto=format&fit=crop&w=1400&q=60',
-      price: 5
+      price: 15
     },
     {
       id: 3,
