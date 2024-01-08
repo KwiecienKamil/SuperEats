@@ -3,6 +3,7 @@
 Login/Register connected to Mysql database, server in Express.js, searching&filtering products, adding/removing to/from shopping cart 
 
 **`Created Using`**
+
 <img align="left" alt="React" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
 Express.js
 <img align="left" alt="Tailwind" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" />
